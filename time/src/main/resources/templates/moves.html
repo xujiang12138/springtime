@@ -1,0 +1,101 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        .jianshu {
+            font-size: 30px;
+            color: green;
+            margin-left: 50px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+        div ul,div ul li{
+            font-size: 18px;
+            height:30px;
+            list-style-type:none;
+            text-align:center;
+            margin-top: 8px;
+        }
+        div ul li{
+            width:100px;
+            float:left;
+        }
+        input{
+            width: 100px;
+        }
+        span{
+            color: gray;
+            font-family: iconfont;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="row" style="border-bottom: 1px solid gray">
+    <div class="col-md-2">
+        <div class="jianshu">微信步数</div>
+    </div>
+    <div class="col-md-7">
+        <ul style="float: left" >
+            <li ><a class="glyphicon glyphicon-list-alt" href="#">信息</a></li>
+            <li ><a  class="glyphicon glyphicon-equalizer" href="#">关注</a></li>
+            <li ><a  class="glyphicon glyphicon-pencil" href="#">计划</a></li>
+        </ul>
+
+
+        <form class="navbar-form navbar-left" style="float: left">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="搜索">
+            </div>
+            <button type="submit" class="btn btn-default">确认</button>
+        </form>
+
+    </div>
+    <div class="col-md-3">
+        <div>
+            <span style="padding-right: 20px">WX</span>
+            <img class="img-circle" style="width: 40px;height: 40px" src="http://p9f10ih0f.bkt.clouddn.com/18-9-10/52798216.jpg">
+            <button type="button" class="btn btn-default" style="margin-right: 10px">退出</button>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-8" style=>
+            <h1>
+                您今日的步数：
+            </h1>
+            <p style="margin-left: 100px; margin-top:100px;font-size: 200px" th:text="${name.count}"></p>
+        </div>
+        <div class="col-md-4">
+            <h1>今日排行</h1>
+            <div th:each="user:${myUser}">
+                <div class="thumbnail">
+                    <div class="row" style="margin-left: 20px">
+                        <h>用户账号：</h>
+                    </div>
+                    <div class="row" style="margin-left: 40px">
+                        <p th:text="${user.account}"></p>
+                    </div>
+                    <div class="row" style="margin-left: 20px">
+                        <h>用户步数：</h>
+                    </div>
+                    <div class="row" style="margin-left: 40px">
+                        <p th:text="${user.count}"></p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+</body>
+</html>

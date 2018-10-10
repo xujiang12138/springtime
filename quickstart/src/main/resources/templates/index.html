@@ -1,0 +1,37 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>主页</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        h3{
+            color: aqua;
+            font: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" style="margin-left: 200px;background:url('static/1.png');background-size:100%;height:600px;">
+    <h1>学生登录平台</h1>
+    <h3>请填写你的用户名</h3>
+    <div class="row">
+        用户名：<input type="text" value="请输入用户名" style="display:block">
+        昵称：<input type="text"  style="display:block">
+    </div>
+    <h3>请填写安全设置</h3>
+    <tr  th:each="user:${list}">
+        <div class="row" style="margin-top: 20px">
+        <p th:text="${user.textOne}"></p><input type="text"  style="display:block">
+        <p th:text="${user.textTwo}"></p><input type="text"  style="display:block">
+        </div>
+    </tr>
+    <a href="#" class="btn btn-primary" role="button">注册</a>
+
+</div>
+
+
+</div>
+</body>
+</html>

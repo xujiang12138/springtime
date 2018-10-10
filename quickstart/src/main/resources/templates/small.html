@@ -1,0 +1,122 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        span{
+            margin-top: 20px;
+            color: white;
+            margin-left: 20px;
+        }
+        .button1{
+            background: :url("");
+            margin-top: 5px;
+            margin-left: 20px;
+            width:60px;
+            border-radius: 15px;
+            color: white;
+            background-color:transparent;
+            border: 1px solid white;
+        }
+        .a1{
+            color: white;;
+        }
+
+
+
+    </style>
+</head>
+<body>
+
+<div class="row" style="background-color: black;height: 50px">
+
+    <div class="col-md-4">
+        <div class="navbar-right"  >
+            <img src="http://p9f10ih0f.bkt.clouddn.com/18-9-10/32205650.jpg" style="height: 50px">
+        </div>
+    </div>
+
+    <div class="col-md-4" style="text-align: center;margin-top: 5px;font-size: 30px;">
+        <p style="color: white">#应用推荐</p>
+    </div>
+
+    <div class="col-md-4">
+       <span class="glyphicon glyphicon-pencil"></span>
+       <span class="glyphicon glyphicon-zoom-out"></span>
+        <button  type="button" class="button1" >登录</button>
+    </div>
+
+</div>
+
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="nav nav-tabs" style="margin-left: 330px">
+            <li role="presentation" class="active"><a class="glyphicon glyphicon-list-alt" href="#">正版软件</a></li>
+            <li role="presentation"><a  class="glyphicon glyphicon-equalizer" href="#">付费栏目</a></li>
+            <li role="presentation"><a  class="glyphicon glyphicon-pencil" href="#">Matrix</a></li>
+            <li role="presentation"><a  class="glyphicon glyphicon-folder-close" href="#">专题广场</a></li>
+            <li role="presentation"><a href="#">热门文章</a></li>
+            <li role="presentation"><a href="#">应用推荐</a></li>
+            <li role="presentation"><a href="#">生活方式</a></li>
+            <li role="presentation"><a href="#">新玩意</a></li>
+
+
+        </ul>
+    </div>
+
+</div>
+
+<div class="container" style="margin-top: 20px">
+    <div class="row">
+        <div class="col-md-8">
+            <div th:each="publish:${publishers}">
+                <div class="thumbnail">
+                    <img style="width: 40px;height: 40px;float: left" src="http://p9f10ih0f.bkt.clouddn.com/18-9-10/52798216.jpg">
+
+                    <div class="row">
+                        <a  th:text="${publish.name}" style="display: block"></a>
+                        <p th:text="${publish.time}"></p>
+                    </div>
+
+                    <div class="row">
+
+                        <div class="col-md-8">
+                            <a style="font-size: 20px; " th:text="${publish.title}"></a>
+                            <p style="margin-top: 10px;font-size: 16px;font:bold" th:text="${publish.content}"></p>
+                        </div>
+
+                        <div class="col-md-4">
+                            <img  style="width: 150px;height: 80px" th:src="${publish.picture}">
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-left: 500px;margin-top: 10px">
+                        <a th:text="${publish.math}" class="glyphicon glyphicon-circle-arrow-down"></a>
+                        <a th:text="${publish.math2}" class="glyphicon glyphicon-random" style="margin-left: 20px"></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+                <div th:each="title:${titles}">
+                    <div class="thumbnail">
+                        
+                        <div style="background:url(http://p9f10ih0f.bkt.clouddn.com/18-9-10/69340119.jpg) no-repeat left top;height: 200px;text-align: center">
+                            <br>
+                            <br>
+                            <p th:text="${title.title}" style="display: block;font-weight: bold;font-size: 20px;color: white"></p>
+                            <button  style="margin-top: 50px;background: transparent" type="button" class="btn btn-default"><a class="a1">查看专题</a></button>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

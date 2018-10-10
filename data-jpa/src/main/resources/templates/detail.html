@@ -1,0 +1,104 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" />
+    <style>
+        .fom{
+            font-size: 30px;
+            font-weight: bold;
+        }
+
+        .cc {
+            white-space: normal;
+            word-break: break-all;
+            word-wrap: break-word;
+        }
+
+        .jianshu{
+            font-size: 30px;
+            color: red;
+            margin-left: 50px;
+            margin-top: 5px;
+            font-weight: bold;
+        }
+
+        div ul,div ul li{
+            font-size: 18px;
+            height:30px;
+            list-style-type:none;
+            text-align:center;
+            margin-top: 8px;
+        }
+        div ul li{
+            width:100px;
+            float:left;
+        }
+        input{
+            width: 100px;
+        }
+        span{
+            color: gray;
+            font-family: iconfont;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+<div class="row" style="border-bottom: 1px solid gray">
+    <div class="col-md-2">
+        <div class="jianshu">简书</div>
+    </div>
+    <div class="col-md-7">
+        <ul style="float: left" >
+            <li ><a class="glyphicon glyphicon-list-alt" href="#">发现</a></li>
+            <li ><a  class="glyphicon glyphicon-equalizer" href="#">关注</a></li>
+            <li ><a  class="glyphicon glyphicon-pencil" href="#">消息</a></li>
+
+        </ul>
+
+
+        <form class="navbar-form navbar-left" style="float: left">
+            <div class="form-group">
+                <input type="text" class="form-control" placeholder="搜索">
+            </div>
+            <button type="submit" class="btn btn-default">确认</button>
+        </form>
+
+    </div>
+    <div class="col-md-3">
+        <div>
+            <span style="padding-right: 20px">Aa</span>
+            <img class="img-circle" style="width: 40px;height: 40px" src="http://p9f10ih0f.bkt.clouddn.com/18-9-10/52798216.jpg">
+            <button type="button" class="btn btn-default" style="margin-right: 10px">写文章</button>
+        </div>
+    </div>
+</div>
+<div class="container" style="margin-left: 500px;margin-top: 50px">
+    <div class="row">
+        <div th:text="${text.title}" class="fom">
+
+        </div>
+    </div>
+
+    <div class="row" style="margin-top: 30px">
+        <img class="img-circle" style="width: 70px;height: 70px;float: left" src="http://p9f10ih0f.bkt.clouddn.com/18-9-10/52798216.jpg">
+
+        <div class="row">
+            <a  th:text="黑子_f3" style="display: block;font-size: 21px;color: black"></a>
+            <p style="padding-top: 10px" th:text="小帅比"></p>
+        </div>
+
+        <div class="row" style="margin-top: 30px">
+            <img  style="width: 400px;height: 300px" th:src="${text.avatar}">
+        </div>
+
+        <div class="cc" style="width: 400px;margin-top: 20px" >
+            <p  th:text="${text.content}"></p>
+        </div>
+    </div>
+</div>
+</body>
+</html>
